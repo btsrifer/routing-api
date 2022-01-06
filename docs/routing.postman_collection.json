@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "6dd21e5d-c567-4e7e-bb88-9de1efb2455e",
+		"name": "routing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sample 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin\": \"A\",\n    \"destination\": \"I\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/routing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"routing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sample 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin\": \"A\",\n    \"destination\": \"I\",\n    \"cutoff\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/routing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"routing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sample 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin\": \"A\",\n    \"destination\": \"I\",\n    \"plus_on_min_length\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/routing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"routing"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sample 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"origin\": \"A\",\n    \"destination\": \"I\",\n    \"plus_on_min_length\": 1,\n    \"plus_on_min_cost\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/routing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"routing"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

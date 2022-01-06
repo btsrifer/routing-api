@@ -1,0 +1,41 @@
+version: "3.7"
+
+services:
+  api:
+    build: .
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-MY_DRAFT_SECRET_KEY}
+      - API_DB_NAME=${API_DB_NAME:-api}
+      - EXTERNAL_DB_NAME=${EXTERNAL_DB_NAME:-routing}
+      - EXTERNAL_DB_HOST=${EXTERNAL_DB_HOST:-host.docker.internal}
+      - EXTERNAL_DB_PORT=${EXTERNAL_DB_PORT:-5432}
+      - EXTERNAL_DB_USER=${EXTERNAL_DB_USER:-postgres}
+      - EXTERNAL_DB_PASSWORD=${EXTERNAL_DB_PASSWORD:-postgres}
+    volumes:
+      - .:/app/api
+      - api_virtual_env:/app/api/.venv
+    working_dir: /app/api
+    tty: true
+    command: bash -c "export PIPENV_VENV_IN_PROJECT=1;\
+              pipenv install --ignore-pipfile --dev;\
+              pipenv run python api/manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    depends_on:
+      - api_db
+  api_db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=${API_DB_NAME:-api}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_USER:-postgres}
+    volumes:
+      - ./external_db/init.sh:/docker-entrypoint-initdb.d/init.sh
+      - ./external_db/schema_queries/:/opt/schema_queries/
+      - psql_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+volumes:
+  api_virtual_env:
+  psql_data:
