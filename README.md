@@ -1,5 +1,5 @@
 # About
-This project provides a sample API that generates paths between an origin and destination in a network. The API is designed in python using the `Django REST Framework` and the network functionalities are implemented using the `NetworkX` library. The design of this project assumes that the data that define the network topology (i.e. nodes and edges) reside on an external database. When the container of the project is executed for the first time, a sample external database is created and populated with a sample network.
+This project provides a sample API that generates paths between an origin and destination on a network. The API is designed in python using the `Django REST Framework` and the network functionalities are implemented using the `NetworkX` library. The design of this project assumes that the data that define the network topology (i.e. nodes and edges) reside on an external database. When the container of the project is executed for the first time, a sample external database is created and populated with a sample network.
 
 # Build
 
@@ -46,6 +46,11 @@ And the `edges` table data look like:
 ...
 ```
 __\*__ The `cost` quantity is associated with every edge and it describes in an abstract manner how "costly" is the transition in a pair of connected nodes. It is just introduced to bring an extra dimension to the path generation process.       
+
+The sample data which populate the `routing` database when the project's container is executed for the first time define the following topology:
+
+![](./docs/sample_network.png)
+
 # Request payload format
 The format of the request payload is the following:
 ```json
