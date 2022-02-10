@@ -82,7 +82,7 @@ DATABASES = {
         "NAME": "api",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "host.docker.internal",
+        "HOST": "api_db",
         "PORT": "5432",
     }
 }
